@@ -1,0 +1,61 @@
+---
+title: "Animal Crossing, and the Power of Virtual Worlds on Mental Health During a Time of Need"
+subtitle: "A Study on a Multinational Dataset of Game Players’ Behaviors in a Virtual World and Environmental Perceptions"
+author: 
+  - Anonymous 
+thanks: "Code and data are available at: LINK."
+date: "`r format(Sys.time(), '%d %B %Y')`"
+abstract: "While COVID-19 has negatively impacted people's mental health, many people claim that Animal Crossing: New Horizon, a life-simulation game released in March of 2020, has been beneficial to their mental well-being. As such, we dive into a multinational dataset on video game players’ behaviours in Animal Crossing in an attempt to understand if the game has a real positive impact on mental health and how it accomplishes it if it does so. Through rigorous research and examinations, we find that relationship between a healthier state of mind and playing Animal Crossing does exist and that gaming, in general, has various benefits for its players..\\par \\textbf{Keywords:} virtual environment, animal crossing, video games, environmental psychology, game-playing behaviors, multinational"
+output:
+  bookdown::pdf_document2
+toc: FALSE
+bibliography: references.bib
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+# Introduction
+Ever since COVID-19 has become recognized as a global pandemic, we have seen a decline in people's overall mental health and well-being. With necessary pandemic restrictions such as social distancing and self-isolation, people began to experience more stress, anxiety, fear, sadness and loneliness. Moreover, many of the public health measures put in place to control the spread of the virus has left numerous people without a stable income, thus leading them to poorer mental health. 
+
+Left at home, with nothing to do to kill time, many people have turned to video games as an escape from the dark and bleak reality they faced. As such, the number of video games bought and played has risen since the start of the pandemic. Just within the United States, the number of people who game has jumped up by "6 points to 79%, with total time spent gaming increasing 26% and total spend increasing 33%" [@nypd].
+
+Animal Crossing: New Horizons is a life-simulation game made by Nintendo and released in the earlier months of 2020 - around the time the WHO first declared COVID-19 an international public health emergency. Many Animal Crossing fans claim that the game couldn't have had a better release date, and came when the world needed it the most. 
+
+# Data
+
+
+
+# Results
+
+# Discussion
+
+## First discussion point
+
+## Second discussion point
+
+## Third discussion point
+
+## Weaknesses and next steps
+
+\newpage
+
+\appendix
+
+# Appendix {-}
+
+
+# Additional details
+
+
+\newpage
+
+
+# References
+
+

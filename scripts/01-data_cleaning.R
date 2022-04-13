@@ -1,36 +1,36 @@
 #### Preamble ####
-# Purpose: Clean the survey data downloaded from [...UPDATE ME!!!!!]
-# Author: Rohan Alexander [CHANGE THIS TO YOUR NAME!!!!]
-# Data: 3 January 2021
-# Contact: rohan.alexander@utoronto.ca [PROBABLY CHANGE THIS ALSO!!!!]
+# Purpose: Clean the survey data downloaded from Science Data Bank
+# Author: Christina Chan-Ying
+# Data: April 12, 2022
+# Contact: christina.chanying@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: 
-# - Need to have downloaded the ACS data and saved it to inputs/data
-# - Don't forget to gitignore it!
-# - Change these to yours
-# Any other information needed?
+# Pre-requisites: None
 
 
 #### Workspace setup ####
 # Use R Projects, not setwd().
+library(readxl)
 library(haven)
 library(tidyverse)
-# Read in the raw data. 
-raw_data <- readr::read_csv("inputs/data/raw_data.csv"
-                     )
-# Just keep some variables that may be of interest (change 
-# this depending on your interests)
-names(raw_data)
 
-reduced_data <- 
-  raw_data %>% 
-  select(first_col, 
-         second_col)
-rm(raw_data)
-         
+# Read in the raw data.
+readr::local_edition(1)
+raw_data <- readr::read_csv("inputs/data/data_640_validated.csv") |>
+  rename(
+    A1.1 = A1_1,
+    A1.2 = A1_2
+  )
 
-#### What's next? ####
+data_description <- read_excel("inputs/data/Data description_validated.xlsx", sheet = 1)
 
+
+# Delete first two columns of raw_data
+raw_data[ , c(1, 2)] <- list(NULL)
+
+
+#### Save Cleaned Data ####
+write_csv(raw_data, "inputs/data/cleaned_data.csv")
+write_csv(data_description, "inputs/data/cleaned_data_description.csv")
 
 
          
