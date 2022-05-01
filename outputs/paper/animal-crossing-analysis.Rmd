@@ -117,7 +117,7 @@ Overall, the survey was designed thoroughly, and accounted for possible answers 
 
 ### Demographics
 
-```{r age, echo=FALSE}
+```{r age-gc, fig.cap="The Age Groups of the Respondents", echo=FALSE}
 # Get Ages from dataset
 what_age <- subset(socio_demo, Question == "What is your age?") |>
   tibble::rownames_to_column() |>
@@ -146,7 +146,7 @@ ggplot(grouped_ages, aes(x = group, y = population)) +
   scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
   ylab("Number of Participants") + xlab("Age Group")
 ```
-```{r socio-demographic-profile, echo=FALSE}
+```{r socdem-profile, fig.cap="Socio-demographic Profile", echo=FALSE}
 #Get all socio-demographic profile data except for age
 demograph <- subset(socio_demo, Question != "What is your age?") %>% 
   remove_rownames %>% 
@@ -251,7 +251,7 @@ kbl(profile, caption = "Socio-Demographics") %>%
 
 ```
 
-Out of the 640 responses received, most of them were within their 20s (see Figure \@ref(fig:age)) and came from either a nationality of American or Canadian (see Table \@ref(fig: socio-demographic-profile)). Table \@ref(fig: socio-demographic-profile) and Figure \@ref(fig:age) both display all of the sociodemographic data obtained from the “Socio-demographic profile” section of the questionnaire. If we look at Table \@ref(fig: socio-demographic-profile), we see that most of the participants were female, completing their undergrad education, white, had a pet or garden at home (closely followed by just a pet), and were single (never married). 
+Out of the 640 responses received, most of them were within their 20s (see Figure \@ref(fig:age-gc)) and came from either a nationality of American or Canadian (see Table \@ref(tab:socdem-profile)). Table \@ref(tab:socdem-profile) and Figure \@ref(fig:age-gc) both display all of the sociodemographic data obtained from the “Socio-demographic profile” section of the questionnaire. If we look at Table \@ref(tab:socdem-profile), we see that most of the participants were female, completing their undergrad education, white, had a pet or garden at home (closely followed by just a pet), and were single (never married). 
 
 
 ```{r soc-dist, echo=FALSE}
@@ -331,27 +331,58 @@ ggplot(cov_worry, aes(x = `Level of Concern`, y = `Number of Participants`, fill
 
 ### Implications 
 
+They only asked for the participant’s biological sex in Group 1. Socio-demographic profiles of their questionnaire. 
+Seems to be discriminatory… especially since gender would be more applicable to their ….
+
+*	Bias
+*	Cons
+*	Inconsistent scale 
+
+
 # Results
 
+```{r game-beh, echo=FALSE}
+# get activity data
+activities <- subset(game_beh, Code=="E1" | Code == "E2" | Code == "E3" | Code == "E4") %>% 
+  remove_rownames %>%
+  column_to_rownames(var="Code")
+
+activities = select(activities, -641, -642)
+
+# activities <- mutate_all(activities, function(x) as.numeric(as.character(x)))
+# 
+# act_mean %>% rowMeans(activities, na.rm = FALSE, dims = ncol(activities))
+# 
+# act_mean <- sapply(activities, mean)
+  # rowMeans(activities) 
+
+```
+
 "The first five variables are involved in the frequency of doing five major in-game activities: catching bugs (E1), fishing (E2), planting trees/flowers (E3), Terraforming (E4), and participating in mystery island tours (E5). The frequency was measured on a 4-point Likert scale ranging from 1 (never) to 4 (often). The next four variables (E6 to E9) are related to the willingness to collect or plant all the following species in the ACNH: fish (D6), bug (D7), tree (D8), and flower (D9). A 5-point Likert scale measures the willingness from 1 (very unlikely) to 5 (very likely)" [@acarticle]. 
+
+In total, it was found that some of the most completed activity done by the player were related to catching or collecting items, and then either donating these items to the museum or selling them for a profit. 
+
+...
+
+Overall, we found that 
 
 # Discussion
 
 ## Stigmatism on Gaming
-
+Trump blames shooting on gaming - https://www.ft.com/content/1c5914b6-bdb7-11e9-9381-78bab8a70848 
 
 
 ## Benefits of Gaming and Animal Crossing
 
-## How Playing Animal Crossing:New Horizons Benefits Mental Health
-```{r game-beh, echo=FALSE}
-# beh <- subset(game_beh, )
-# 
 
 
-```
+### How Playing Animal Crossing:New Horizons Benefits Mental Health
+
+Based on the dataset, it was found that playing New Horizons made many of their players feel challenged (F26), successful (F17), content (F1), and that it was able to occupy enough of their mind to help them forget about the world around them (F5 and F13).
 
 ```{r game-feel, echo=FALSE}
+# get game feeling data
+
 
 ```
 

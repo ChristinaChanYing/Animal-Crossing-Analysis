@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.2.8)  30 APR 2022 22:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.2.8)  1 MAY 2022 15:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -574,68 +574,68 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 [1
 
 {c:/Users/chris/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-<animal-crossing-analysis_files/figure-latex/age-1.pdf, id=114, 469.755pt x 325.215pt>
-File: animal-crossing-analysis_files/figure-latex/age-1.pdf Graphic file (type pdf)
-<use animal-crossing-analysis_files/figure-latex/age-1.pdf>
-Package pdftex.def Info: animal-crossing-analysis_files/figure-latex/age-1.pdf  used on input line 217.
+<animal-crossing-analysis_files/figure-latex/age-gc-1.pdf, id=110, 469.755pt x 325.215pt>
+File: animal-crossing-analysis_files/figure-latex/age-gc-1.pdf Graphic file (type pdf)
+<use animal-crossing-analysis_files/figure-latex/age-gc-1.pdf>
+Package pdftex.def Info: animal-crossing-analysis_files/figure-latex/age-gc-1.pdf  used on input line 217.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [4]
 
-LaTeX Warning: Reference `fig:age' on page 5 undefined on input line 316.
+LaTeX Warning: Reference `fig:age-gc' on page 5 undefined on input line 316.
 
 
-LaTeX Warning: Reference `fig:age' on page 5 undefined on input line 316.
+LaTeX Warning: Reference `fig:age-gc' on page 5 undefined on input line 316.
 
-<animal-crossing-analysis_files/figure-latex/soc-dist-1.pdf, id=125, 469.755pt x 325.215pt>
+<animal-crossing-analysis_files/figure-latex/soc-dist-1.pdf, id=123, 469.755pt x 325.215pt>
 File: animal-crossing-analysis_files/figure-latex/soc-dist-1.pdf Graphic file (type pdf)
 <use animal-crossing-analysis_files/figure-latex/soc-dist-1.pdf>
 Package pdftex.def Info: animal-crossing-analysis_files/figure-latex/soc-dist-1.pdf  used on input line 318.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[5 <./animal-crossing-analysis_files/figure-latex/age-1.pdf>] [6pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
+[5 <./animal-crossing-analysis_files/figure-latex/age-gc-1.pdf>] [6pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.320 \includegraphics
                       {animal-crossing-analysis_files/figure-latex/covid-wor...]
-<animal-crossing-analysis_files/figure-latex/covid-worry-1.pdf, id=141, 469.755pt x 325.215pt>
+<animal-crossing-analysis_files/figure-latex/covid-worry-1.pdf, id=139, 469.755pt x 325.215pt>
 File: animal-crossing-analysis_files/figure-latex/covid-worry-1.pdf Graphic file (type pdf)
 <use animal-crossing-analysis_files/figure-latex/covid-worry-1.pdf>
 Package pdftex.def Info: animal-crossing-analysis_files/figure-latex/covid-worry-1.pdf  used on input line 320.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[7 <./animal-crossing-analysis_files/figure-latex/soc-dist-1.pdf>] [8 <./animal-crossing-analysis_files/figure-latex/covid-worry-1.pdf>] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 364--366
+[7 <./animal-crossing-analysis_files/figure-latex/soc-dist-1.pdf>] [8 <./animal-crossing-analysis_files/figure-latex/covid-worry-1.pdf>] [9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 387--389
 []$\T1/lmr/m/n/10 https : / / www . nintendolife . com / news / 2020 / 05 / animal _ crossing _ new _ horizons _ sold _ 11 _ 77 _ million _
  []
 
 
-Underfull \hbox (badness 3679) in paragraph at lines 370--372
+Underfull \hbox (badness 3679) in paragraph at lines 393--395
 \T1/lmr/m/it/10 En-ter-tain-ment Par-tic-i-pa-tion, Time and Money on Video Games, Re-ports the NPD Group\T1/lmr/m/n/10 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 370--372
+Underfull \hbox (badness 10000) in paragraph at lines 393--395
 []$\T1/lmr/m/n/10 https : / / www . npd . com / news / press -[] releases / 2020 / across -[] all -[] age -[] groups -[] us -[] consumers -[] are -[] investing -[]
  []
 
-[10] (./animal-crossing-analysis.aux)
+[11] (./animal-crossing-analysis.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `animal-crossing-analysis.out' has not changed.
-(rerunfilecheck)             Checksum: 3043F397517713B37DD6A8B718D4297F;1957.
+(rerunfilecheck)             Checksum: E155D9934C40A04E795AC4042F4F1C56;1563.
  ) 
 Here is how much of TeX's memory you used:
- 12816 strings out of 480238
- 203596 string characters out of 5894272
- 496145 words of memory out of 5000000
+ 12817 strings out of 480238
+ 203620 string characters out of 5894272
+ 496154 words of memory out of 5000000
  30443 multiletter control sequences out of 15000+600000
  536027 words of font info for 80 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,9n,63p,1224b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx9.pfb><c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/chris/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
-Output written on animal-crossing-analysis.pdf (10 pages, 299879 bytes).
+Output written on animal-crossing-analysis.pdf (11 pages, 300399 bytes).
 PDF statistics:
- 291 PDF objects out of 1000 (max. 8388607)
- 248 compressed objects within 3 object streams
- 70 named destinations out of 1000 (max. 500000)
- 128 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 295 PDF objects out of 1000 (max. 8388607)
+ 251 compressed objects within 3 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 120 words of extra memory for PDF output out of 10000 (max. 10000000)
 
