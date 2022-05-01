@@ -1,14 +1,14 @@
 ---
 title: "Animal Crossing, and the Power of Virtual Worlds on Mental Health During a Time of Need"
-subtitle: "A Study on a Multinational Dataset of Game Players’ Behaviors in a Virtual World and Environmental Perceptions"
+subtitle: "A Study on How Animal Crossing: New Horizons Effects Game Players’ Behaviors"
 author: 
-  - Anonymous 
-thanks: "Code and data are available at: LINK."
+  - Christina Chan-Ying 
+thanks: "Code and data are available at: [https://github.com/ChristinaChanYing/Animal-Crossing-Analysis](https://github.com/ChristinaChanYing/Animal-Crossing-Analysis)"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "While COVID-19 has negatively impacted people's mental health, many people claim that Animal Crossing: New Horizon, a life-simulation game released in March of 2020, has been beneficial to their mental well-being. As such, we dive into a multinational dataset on video game players’ behaviours in Animal Crossing in an attempt to understand if the game has a real positive impact on mental health and how it accomplishes it if it does so. Through rigorous research and examinations, we find that relationship between a healthier state of mind and playing Animal Crossing does exist and that gaming, in general, has various benefits for its players..\\par \\textbf{Keywords:} virtual environment, animal crossing, video games, environmental psychology, game-playing behaviors, multinational"
+abstract: "While COVID-19 has negatively impacted people's mental health, many people claim that Animal Crossing: New Horizon, a life-simulation game released in March 2020, has been beneficial to their mental well-being. As such, we dive into a multinational dataset on video game players’ behaviours in Animal Crossing in an attempt to understand if the game has a real positive impact on mental health and how it accomplishes it if it does so. Through rigorous research and examinations, we find that a relationship between a healthier state of mind and playing Animal Crossing does exist and that gaming, in general, has various benefits for its players. The release of Animal Crossing: New Horizons coinciding with the beginning of the COVID-19 global pandemic has allowed for the game to become an outlet for those seeking to relieve the stress they experience from it.\\par \\textbf{Keywords:} virtual environment, animal crossing, video games, environmental psychology, game-playing behaviors, multinational"
 output:
   bookdown::pdf_document2
-toc: FALSE
+toc: TRUE
 bibliography: references.bib
 nocite: '@*'
 ---
@@ -17,40 +17,350 @@ nocite: '@*'
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-library(palmerpenguins)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+library(gridExtra)
 ```
+
 
 # Introduction
 Ever since COVID-19 has become recognized as a global pandemic, we have seen a decline in people's overall mental health and well-being. With necessary pandemic restrictions such as social distancing and self-isolation, people began to experience more stress, anxiety, fear, sadness and loneliness. Moreover, many of the public health measures put in place to control the spread of the virus has left numerous people without a stable income, thus leading them to poorer mental health. 
 
-Left at home, with nothing to do to kill time, many people have turned to video games as an escape from the dark and bleak reality they faced. As such, the number of video games bought and played has risen since the start of the pandemic. Just within the United States, the number of people who game has jumped up by "6 points to 79%, with total time spent gaming increasing 26% and total spend increasing 33%" [@nypd].
+Left at home, with nothing to do to kill time, many people have turned to video games as an escape from the dark and bleak reality they faced. As such, the number of video games bought and played has risen since the start of the pandemic. Just within the United States, the number of people who game has jumped up by "6 points to 79%, with total time spent gaming increasing 26% and total spend increasing 33%" [@npd].
 
-Animal Crossing: New Horizons is a life-simulation game made by Nintendo and released in the earlier months of 2020 - around the time the WHO first declared COVID-19 an international public health emergency. Many Animal Crossing fans claim that the game couldn't have had a better release date, and came when the world needed it the most. 
+
+## About Animal Crossing 
+Animal Crossing: New Horizons is a life-simulation game made by Nintendo for their Switch and was released on March 20, 2020 - around the time the WHO first declared COVID-19 an international public health emergency. Many Animal Crossing fans claim that the game couldn't have had a better release date and came when the world needed it the most. 
+
+### Gameplay
+In this game, you play as a human character that you get to customize(i.e. name, gender, skin, facial features). You begin the game by moving to a new rural area; in previous games, this new place was generally a small down, but in New Horizons, it is a deserted Island. The rest of the area’s residents are NPCs (non-player characters) are an assortment of different animals with different personalities. As you get to know each animal better, you will level up your friendship level with them and unlock new dialogue. One important NPC is Tom Nook, a raccoon dog (also known as tanuki in Japan) who functions as both a shop owner and real estate broker. Tom Nook is one of the first characters you will meet and will offer you a loan for your home various upgrades for no interest. The player can pay off this loan by making Bells (the in-game currency) through selling various items to Tom Nook such as fruit, fish, bugs, fossils, etc. that are found around the island. 
+
+Overall, the gameplay is very open-ended with no defined objectives. This allows for the player to choose how they want to play the game and make it their own. For instance, in New Horizons, there are many players that focuses on customizing their island and beautifying it, while there are others that focus on collecting all the different types of bugs, fish, and fossils found on the island. 
+
+### History
+The original Animal Crossing game was made for the GameCube and was first released in Japan on April 14, 2001, and the rest of the world in the next few years. Since then, the Animal Crossing franchise have taken off and become one of Nintendo’s fan favourites and have had, and there have been a series of games created since then (i.e. Wild World, New City, New Leaf, Pocket Camp, etc.). New Horizons is latest games to be added to the Animal Crossing series and has quickly become the most popular Animal Crossing game, and one of Nintendo’s best-selling games for the Switch. 
+Many people attribute the games success and popularity to its release date coinciding with the start of a pandemic. Having limited physical and social interactions with friends outside along with remote school and work, and numerous layoffs meant that a lot of people had time to spare at home. As such, Animal Crossing: New Horizons quickly became one people favourite pastimes due to its fun graphics, and relaxing theme. As New Horizons gained more popularity, and became more mainstream, it exponentially grew in sales. 
+
+Within the first 6 weeks of its release, Nintendo was able to sell 13.41 million copies of New Horizons, thus already outselling both Animal Crossing: Wild World and Animal Crossing: New Leaf sales [@ac6wk]. As of December 31, 2021, New Horizons is now the second-best selling Nintendo Switch game at 37.62 million pcs just under Mario Kart 8 Deluxe which sits at 43.35 million pcs. [@nintendotopsales]. 
+
+
+## Outline
+In this paper, I aim to uncover whether or not New Horizons actually helps those with mental health issues and New Horizons do so if it does in fact help them. In Section \@ref(data) Data, I describe the dataset used in more detail and cover the methodology used and the demographics. I also go over some of the biases that this dataset contains and the implications it brings to the rest of the data and the conclusions drawn from it. In Section \@ref(results) Results, I will go over some of the interesting findings and conclusions I got from analyzing the data. The last written portion of this paper, Section \@ref(discussion) Discussion compares the findings from section 3 to the external research I’ve completed on Google Scholar.  In this Section, I will also go into dept on the effect Animal Crossing: New Horizons has on its players and how it is able to achieve that effect. 
 
 # Data
 
+## Acknowledgements 
+This paper was written in R, a programming language for statistical computing [@citeR] and uses a variety of different R packages to analyze and manipulate the dataset. These packages includes readxl [@readxl], tidyverse [@tidyverse] and dplyr [@dplyr] for handling the data (i.e. for reading, cleaning, etc.). ggplot2 [@ggplot2] was used for graphing and knitr [@knitr] and kableExtra [@kableExtra] to construct and style tables.
 
+## Data Source
+The dataset used in this paper – “A Multinational Data Set of Game Players' Behaviors in a Virtual World and Environmental Perceptions” –  was obtained from Science Data Bank, an online database that provides free data storage and publishing for individual scientific researchers. The dataset used was made by researchers, Quan-Hoang Vuong,  Manh-Toan Ho,  Viet-Phuong La,  Tam-Tri Le,  Thanh Huyen T. Nguyen,  Minh-Hoang Nguyen in 2021 with the goal of “provid[ing] policymakers, game producers, and researchers with valuable resources for understanding the interactions between behaviors in the virtual world and environmental perceptions” and ultimately “help produce video games in compliance with the United Nations (UN) Sustainable Development Goals” [@acarticle]. The creators of this dataset also created and published a complementary article for the dataset by the same name. Within their article, the aim to discover the “connections between game players' behaviors in the virtual environment and environmental perceptions” [@acarticle]. This article will be references thoroughly throughout the paper to help support the arguments. 
+
+
+```{r get-data, include=FALSE}
+### Grabbing the data ###
+data <- readr::read_csv(here::here("inputs/data/cleaned_data.csv"))
+description <- readr::read_csv(here::here("inputs/data/cleaned_data_description.csv"))
+
+## Separating the data by Group ##
+socio_demo <- subset (
+  merge(data, description, by="Code"), 
+  Group == "1. Socio-demographic profiles"
+  )
+covid_concern <- subset (
+  merge(data, description, by="Code"), 
+  Group == "2.COVID-19 Concern"
+  )
+env_percep <- subset (merge(
+  data, description, by="Code"), 
+  Group == "3.Environmental perception" || Group == "3.Environmental perception (Reverse scale)"
+  )
+game_habit <- subset (
+  merge(data, description, by="Code"), 
+  Group == "4.Game-playing habit"
+  )
+game_beh <- subset (
+  merge(data, description, by="Code"), 
+  Group == "5.In-game behavior"
+)
+game_feeling <- subset (
+  merge(data, description, by="Code"), 
+  Group == "6.Game-playing feeling"
+)
+```
+
+### Methdology 
+The target of the survey of this dataset are Animal Crossing: New Horizons players and the survey was conducted solely online using Google Form through May 15th to the 30th in 2020 [@acarticle]. The survey was spread out to their target audience via social media platforms such as Discord, Reddit, and Facebook [@acarticle]. All distributions of this survey was done so under the permissions community's admin or moderator team and was only posted with apparent indications that it was solely for research [@acarticle]. The respondents were given a consent form to agree with their terms before participating in the survey and were given a chance to win a \$5 USD Amazon gift card (only the first 100 respondents or a \$2 USD Amazon gift card (the next 200 respondents) [@acarticle]. In total, they received 640 responses from 29 unique countries. 
+
+In order to assure that their survey was clear and accurate, the authors conducted a pilot survey with 15 students in in Japan, Singapore, the USA [@acarticle]. The, based on the feedback and responses from the participants, the authors modified their question for improved clarity and accuracy [@acarticle]. Throughout the data collection process, the authors supported the survey participant by providing their contact information for inquires while completing the questionnaire [@acarticle]. 
+
+### Questionnaire Design
+
+To avoid missing data, the authors made all of their questions mandatory, thus forcing the participants to answer all question to proceed within the survey or submit it [@acarticle]. The questions in the survey were designed through referencing the in-game activities of New Horizons and the established scales of prior studies [@acarticle].
+
+There are 6 separate sections/groups within their survey [@acarticle]: 
+
+* Socio-demographic profile: Basic information of the game players, such as origin, biological sex, age, highest education level, ethnicity, marital status, and employment status, etc. 
+
+* COVID-19 concern: How COVID-19 affected the game players lives (i.e. were they isolating or social distancing, or feeling anxious).
+
+* Environmental perceptions: Uses the revised New Environmental Paradigm Scale of Dunlap, Van Liere, Mertig, and Jones.
+
+* Game playing practice: Designed to explore the habits of game players in terms of their game play experience, the genres they play, and the frequency at which they game.
+
+* In-game behavior: Questions covering the most prominent activities associated with environmental values. (These questions were adjusted according to the feedbacks received during the pilot collection). 
+
+* Game playing feeling: Uses the core questions of "The Game Experience Questionnaire" written by W.A. IJsselsteijn, Y.A.W. de Kort, and K. Poels. 
+
+Overall, the survey was designed thoroughly, and accounted for possible answers the participant would have given. As such, it would seem as though all participants would have been able to easily answer the questionnaire without much trouble. However, this does not mean that the survey was without any exclusion/bias (see \@ref(implications) for more details).
+
+### Demographics
+
+```{r age, echo=FALSE}
+# Get Ages from dataset
+what_age <- subset(socio_demo, Question == "What is your age?") |>
+  tibble::rownames_to_column() |>
+  pivot_longer(-rowname) |>
+  pivot_wider(names_from=rowname, values_from=value) |>
+  rename(age = 2)
+
+# Clean data
+what_age <- what_age[-c(1, 641, 642, 643), ]
+what_age[ , c(1)] <- list(NULL)
+what_age[c(639),]$age <- "30"
+what_age$age <- as.integer(what_age$age)
+
+# Group data
+grouped_ages <- mutate(what_age, group = cut(what_age$age, c(0, 10, 20, 30, 40, 50, 60))) %>% 
+  group_by(group) %>% 
+  summarize(n=n()) %>% 
+  rename (population = n)
+
+# graph grouped ages
+ggplot(grouped_ages, aes(x = group, y = population)) +
+  geom_bar(stat="identity", position=position_dodge()) + 
+  geom_text(aes(label = population), vjust=-0.5, color="black",
+            position = position_dodge(0.9), size=3.5)+
+  theme_minimal() +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
+  ylab("Number of Participants") + xlab("Age Group")
+```
+```{r socio-demographic-profile, echo=FALSE}
+#Get all socio-demographic profile data except for age
+demograph <- subset(socio_demo, Question != "What is your age?") %>% 
+  remove_rownames %>% 
+  column_to_rownames(var="Question")
+
+# remove first row
+demograph[ , c(1)] <- list(NULL)
+
+#transpose
+demograph <- demograph |>
+  tibble::rownames_to_column() |>
+  pivot_longer(-rowname) |>
+  pivot_wider(names_from=rowname, values_from=value)
+
+#remove first and last row
+demograph[ , c(1)] <- list(NULL)
+demograph <- demograph[-c(641),]
+
+num_nat <- tibble::rownames_to_column(
+  data.frame(unclass(
+    table(demograph$`Region: generated from A1.1`)
+    )), 
+  "row_names"
+  ) %>% 
+  rename (
+    Level = 1,
+    `Number of Participants` = 2
+  )
+
+num_sex <- tibble::rownames_to_column(
+  data.frame(unclass(
+    table(demograph$`What is your biological sex?`)
+    )), 
+  "row_names"
+  ) %>% 
+  rename (
+    Level = 1,
+    `Number of Participants` = 2
+  )
+  
+num_edu <- tibble::rownames_to_column(
+  data.frame(unclass(
+    table(demograph$`What is the highest educational level you have completed`)
+    )), 
+  "row_names"
+  ) %>% 
+  rename (
+    Level = 1,
+    `Number of Participants` = 2
+  )
+
+num_home <- tibble::rownames_to_column(
+  data.frame(unclass(
+    table(demograph$`Do you have a pet or  a garden at home?`)
+    )), 
+  "row_names"
+  ) %>% 
+  rename (
+    Level = 1,
+    `Number of Participants` = 2
+  )
+
+num_eth <- tibble::rownames_to_column(
+  data.frame(unclass(
+    table(demograph$`Please specify your ethnicity.`)
+    )), 
+  "row_names"
+  ) %>% 
+  rename (
+    Level = 1,
+    `Number of Participants` = 2
+  )
+
+num_mar<- tibble::rownames_to_column(
+  data.frame(unclass(
+    table(demograph$`What is your marital status?`)
+    )), 
+  "row_names"
+  ) %>% 
+  rename (
+    Level = 1,
+    `Number of Participants` = 2
+  )
+
+num_emp <- tibble::rownames_to_column(
+  data.frame(unclass(
+     table(demograph$`Employment Status: Are you currently…?`)
+    )), 
+  "row_names"
+  ) %>% 
+  rename (
+    Level = 1,
+    `Number of Participants` = 2
+  )
+
+profile <- rbind(num_nat, num_sex, num_edu, num_emp, num_eth, num_home, num_mar)
+
+# table
+kbl(profile, caption = "Socio-Demographics") %>%
+  kable_paper("striped", full_width = F) %>%
+  pack_rows(index = c("Nationality" = 4, "Biological Sex" = 2, "Highest Level of Education" = 5, "Employment" = 9, "Ethnicity" = 7, "Pet or  a garden at home?" = 4, "Maritial Status" = 5))
+
+```
+
+Out of the 640 responses received, most of them were within their 20s (see Figure \@ref(fig:age)) and came from either a nationality of American or Canadian (see Table \@ref(fig: socio-demographic-profile)). Table \@ref(fig: socio-demographic-profile) and Figure \@ref(fig:age) both display all of the sociodemographic data obtained from the “Socio-demographic profile” section of the questionnaire. If we look at Table \@ref(fig: socio-demographic-profile), we see that most of the participants were female, completing their undergrad education, white, had a pet or garden at home (closely followed by just a pet), and were single (never married). 
+
+
+```{r soc-dist, echo=FALSE}
+# Get social dist data
+soc_dist <- subset(covid_concern, Code == "B1") |>
+  tibble::rownames_to_column() |>
+  pivot_longer(-rowname) |>
+  pivot_wider(names_from=rowname, values_from=value) |>
+  rename(`Self-isolated/social distancing?` = 2)
+
+# Clean & group data
+soc_dist <- soc_dist[-c(1, 642, 643), ]
+soc_dist[ , c(1)] <- list(NULL)
+soc_dist <-  group_by(soc_dist, `Self-isolated/social distancing?`) %>% 
+  summarize(`Number of Participants` = n())
+
+# graph grouped ages
+soc_p1 <- ggplot(soc_dist, aes(x = `Self-isolated/social distancing?`, y = `Number of Participants`, fill = `Self-isolated/social distancing?`)) +
+  geom_bar(stat="identity", position=position_dodge()) + 
+  geom_text(aes(label = `Number of Participants`), vjust=-0.5, color="black",
+            position = position_dodge(0.9), size=3.5)+
+  theme_minimal() +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
+  theme(legend.position="none")
+
+
+# Get social dist data time
+soc_dist_tm <- subset(covid_concern, Code == "B2") |>
+  tibble::rownames_to_column() |>
+  pivot_longer(-rowname) |>
+  pivot_wider(names_from=rowname, values_from=value) |>
+  rename(`Time spent self-isolated/ social distancing` = 2)
+
+# Clean & group data
+soc_dist_tm <- soc_dist_tm[-c(1, 642, 643), ]
+soc_dist_tm[ , c(1)] <- list(NULL)
+soc_dist_tm <-  group_by(soc_dist_tm, `Time spent self-isolated/ social distancing`) %>% 
+  summarize(`Number of Participants` = n())
+
+# graph grouped ages
+soc_p2 <- ggplot(soc_dist_tm, aes(x = `Time spent self-isolated/ social distancing`, y = `Number of Participants`, fill = `Time spent self-isolated/ social distancing`)) +
+  geom_bar(stat="identity", position=position_dodge()) + 
+  geom_text(aes(label = `Number of Participants`), vjust=-0.5, color="black",
+            position = position_dodge(0.9), size=3.5)+
+  theme_minimal() +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 5)) +
+  theme(legend.position="none")
+
+grid.arrange(soc_p1, soc_p2, nrow = 1)
+```
+
+
+```{r covid-worry, echo=FALSE}
+# Get social dist data time
+cov_worry <- subset(covid_concern, Code == "B3") |>
+  tibble::rownames_to_column() |>
+  pivot_longer(-rowname) |>
+  pivot_wider(names_from=rowname, values_from=value) |>
+  rename(`Level of Concern` = 2)
+
+# Clean & group data
+cov_worry <- cov_worry[-c(1, 642, 643), ]
+cov_worry[ , c(1)] <- list(NULL)
+cov_worry <-  group_by(cov_worry, `Level of Concern`) %>% 
+  summarize(`Number of Participants` = n())
+
+# graph grouped ages
+ggplot(cov_worry, aes(x = `Level of Concern`, y = `Number of Participants`, fill = `Level of Concern`)) +
+  geom_bar(stat="identity", position=position_dodge()) + 
+  geom_text(aes(label = `Number of Participants`), vjust=-0.5, color="black",
+            position = position_dodge(0.9), size=3.5)+
+  theme_minimal() +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) +
+  theme(legend.position="none")
+```
+
+
+### Implications 
 
 # Results
 
+"The first five variables are involved in the frequency of doing five major in-game activities: catching bugs (E1), fishing (E2), planting trees/flowers (E3), Terraforming (E4), and participating in mystery island tours (E5). The frequency was measured on a 4-point Likert scale ranging from 1 (never) to 4 (often). The next four variables (E6 to E9) are related to the willingness to collect or plant all the following species in the ACNH: fish (D6), bug (D7), tree (D8), and flower (D9). A 5-point Likert scale measures the willingness from 1 (very unlikely) to 5 (very likely)" [@acarticle]. 
+
 # Discussion
 
-## First discussion point
+## Stigmatism on Gaming
 
-## Second discussion point
 
-## Third discussion point
 
-## Weaknesses and next steps
+## Benefits of Gaming and Animal Crossing
+
+## How Playing Animal Crossing:New Horizons Benefits Mental Health
+```{r game-beh, echo=FALSE}
+# beh <- subset(game_beh, )
+# 
+
+
+```
+
+```{r game-feel, echo=FALSE}
+
+```
 
 \newpage
 
 \appendix
 
 # Appendix {-}
-
-
-# Additional details
+## Datasheet
 
 
 \newpage
